@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace Library
 {
-    class Book
+    public class Book
     {
         private String title;
         private String author;
+        private int id;
 
-        public Book (String title, String author)
+        public Book (String title, String author, int id)
         {
             this.title = title;
             this.author = author;
+            this.id = id;
         }
 
         public String getTitle()
