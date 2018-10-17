@@ -11,6 +11,7 @@ namespace Library
         private String title;
         private String author;
         private int id;
+        private Client client;
 
         public Book (String title, String author, int id)
         {
@@ -27,6 +28,21 @@ namespace Library
         public String getAuthor()
         {
             return this.author;
+        }
+
+        public int getId()
+        {
+            return this.id;
+        }
+
+        public Client getClient()
+        {
+            return this.client;
+        }
+
+        public void setClient(Client client)
+        {
+            this.client = client;
         }
     }
 }
