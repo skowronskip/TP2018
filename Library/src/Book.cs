@@ -20,27 +20,27 @@ namespace Library
             this.id = id;
         }
 
-        public String getTitle()
+        public String GetTitle()
         {
             return this.title;
         }
 
-        public String getAuthor()
+        public String GetAuthor()
         {
             return this.author;
         }
 
-        public int getId()
+        public int GetId()
         {
             return this.id;
         }
 
-        public Client getClient()
+        public Client GetClient()
         {
             return this.client;
         }
 
-        public void setClient(Client client)
+        public void SetClient(Client client)
         {
             this.client = client;
         }

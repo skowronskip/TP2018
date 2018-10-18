@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public interface BookDao
+    public interface IBookDao
     {
-        List<Book> getBooks();
-        List<Book> getBooks(String query);
-        void addBook(Book book);
-        void removeBook(int id);
+        List<Book> GetBooks();
+        List<Book> GetBooks(String query);
+        void AddBook(Book book);
+        void RemoveBook(int id);
     }
 }

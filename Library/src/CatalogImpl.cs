@@ -6,55 +6,55 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class CatalogImpl : Catalog
+    public class Catalog : ICatalog
     {
-        private BookDao dao;
-        public CatalogImpl(BookDao dao)
+        private IBookDao dao;
+        public Catalog(IBookDao dao)
         {
             this.dao = dao;
         }
 
-        public Book getBook(int id)
+        public Book GetBook(int id)
         {
             return null;
         }
 
-        public List<Book> getBooksByAuthor(String author)
+        public List<Book> GetBooksByAuthor(String author)
         {
             return null;
         }
 
-        public List<Book> getBooksByTitle(String title)
+        public List<Book> GetBooksByTitle(String title)
         {
             return null;
         }
 
-        public List<Book> getBooksByState(bool available)
+        public List<Book> GetBooksByState(bool available)
         {
             return null;
         }
 
-        public List<Book> getBooks()
+        public List<Book> GetBooks()
         {
-            return dao.getBooks();
+            return dao.GetBooks();
         }
 
-        public void addBook(Book book)
+        public void AddBook(Book book)
         {
-            dao.addBook(book);
+            dao.AddBook(book);
         }
 
-        public void removeBook(int id)
-        {
-
-        }
-
-        public void borrowBook(int id, Client client)
+        public void RemoveBook(int id)
         {
 
         }
 
-        public void returnBook(int id, Client client)
+        public void BorrowBook(int id, Client client)
+        {
+
+        }
+
+        public void ReturnBook(int id, Client client)
         {
 
         }

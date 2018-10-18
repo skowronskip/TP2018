@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public interface Catalog
+    public interface ICatalog
     {
-         Book getBook(int id);
-         List<Book> getBooksByAuthor(String author);
-         List<Book> getBooksByTitle(String title);
-         List<Book> getBooksByState(bool available);
-         List<Book> getBooks();
-         void addBook(Book book);
-         void removeBook(int id);
-         void borrowBook(int id, Client client);
-         void returnBook(int id, Client client);
+         Book GetBook(int id);
+         List<Book> GetBooksByAuthor(String author);
+         List<Book> GetBooksByTitle(String title);
+         List<Book> GetBooksByState(bool available);
+         List<Book> GetBooks();
+         void AddBook(Book book);
+         void RemoveBook(int id);
+         void BorrowBook(int id, Client client);
+         void ReturnBook(int id, Client client);
     }
 }

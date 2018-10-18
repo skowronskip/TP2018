@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class BookDaoBasicImpl : BookDao
+    public class SimpleBookDao : IBookDao
     {
         private List<Book> books = new List<Book>();
 
-        public List<Book> getBooks()
+        public List<Book> GetBooks()
         {
             return books;
         }
 
-        public List<Book> getBooks(String query)
+        public List<Book> GetBooks(String query)
         {
             throw new NotSupportedException();
         }
 
-        public void addBook(Book book)
+        public void AddBook(Book book)
         {
             books.Add(book);
         }
 
-        public void removeBook(int id)
+        public void RemoveBook(int id)
         {
             foreach (Book book in books)
             {
-                if (book.getId() == id)
+                if (book.GetId() == id)
                 {
                     books.Remove(book);
                     return;

@@ -7,29 +7,29 @@ namespace LibraryTests
     [TestClass]
     public class CatalogTest
     {
-        private Catalog catalog;
+        private ICatalog catalog;
 
         [TestInitialize()]
-        public void setUp()
+        public void SetUp()
         {
-            BookDao dao = new BookDaoBasicImpl();
-            this.catalog = new CatalogImpl(dao);
+            IBookDao dao = new SimpleBookDao();
+            this.catalog = new Catalog(dao);
         }
 
         [TestCleanup()]
-        public void tearDown()
+        public void TearDown()
         {
             this.catalog = null;
         }
         [TestMethod()]
-        public void happyPath()
+        public void HappyPath()
         {
             //given
             Book book = new Book("Test title", "Test author", 1);
             //when
-            catalog.addBook(book);
+            catalog.AddBook(book);
             //then
-            Assert.AreEqual(catalog.getBooks()[0], book);
+            Assert.AreEqual(catalog.GetBooks()[0], book);
         }
     }
 }
