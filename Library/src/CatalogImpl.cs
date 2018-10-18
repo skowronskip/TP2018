@@ -21,17 +21,17 @@ namespace Library
 
         public List<Book> GetBooksByAuthor(String author)
         {
-            return null;
+            return dao.GetBooks().Select(b=>b).Where(b=> b.GetAuthor().Equals(author)).ToList();
         }
 
         public List<Book> GetBooksByTitle(String title)
         {
-            return null;
+            return dao.GetBooks().Select(b => b).Where(b => b.GetTitle().Equals(title)).ToList();
         }
 
-        public List<Book> GetBooksByState(bool available)
+        public List<Book> GetBooksByState(bool isAvailable)
         {
-            return null;
+            return dao.GetBooks().Select(b => b).Where(b => (b.GetClient() == null) == isAvailable).ToList();
         }
 
         public List<Book> GetBooks()
@@ -48,17 +48,20 @@ namespace Library
 
         public void RemoveBook(int id)
         {
-
+            dao.RemoveBook(id);
         }
 
         public void BorrowBook(int id, Client client)
         {
-
+            this.GetBook(id).SetClient(client);
         }
 
         public void ReturnBook(int id, Client client)
         {
-
+            if (client.Equals(GetBook(id).GetClient()))
+            {
+                this.GetBook(id).SetClient(null);
+            }
         }
     }
 }

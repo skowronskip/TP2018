@@ -11,7 +11,7 @@ namespace Library
          Book GetBook(int id);
          List<Book> GetBooksByAuthor(String author);
          List<Book> GetBooksByTitle(String title);
-         List<Book> GetBooksByState(bool available);
+         List<Book> GetBooksByState(bool isAvailable);
          List<Book> GetBooks();
          void AddBooks(params Book[] books);
          void RemoveBook(int id);
