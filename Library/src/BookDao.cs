@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.src
+namespace Library
 {
-    interface BookDao
+    public interface BookDao
     {
         List<Book> getBooks();
         List<Book> getBooks(String query);

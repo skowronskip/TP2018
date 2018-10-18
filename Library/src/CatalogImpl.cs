@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.src
+namespace Library
 {
-    class CatalogImpl : Catalog
+    public class CatalogImpl : Catalog
     {
         private BookDao dao;
         public CatalogImpl(BookDao dao)

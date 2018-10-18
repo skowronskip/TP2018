@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.src
+namespace Library
 {
-    class BookDaoBasicImpl : BookDao
+    public class BookDaoBasicImpl : BookDao
     {
         private List<Book> books = new List<Book>();
 

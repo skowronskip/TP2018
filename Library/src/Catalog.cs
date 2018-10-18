@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.src
+namespace Library
 {
-    interface Catalog
+    public interface Catalog
     {
          Book getBook(int id);
          List<Book> getBooksByAuthor(String author);
