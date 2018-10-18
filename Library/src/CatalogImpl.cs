@@ -16,7 +16,7 @@ namespace Library
 
         public Book GetBook(int id)
         {
-            return null;
+            return dao.GetBooks().Select(book => book).Where(book => id == book.GetId()).ToArray()[0];
         }
 
         public List<Book> GetBooksByAuthor(String author)
@@ -39,9 +39,11 @@ namespace Library
             return dao.GetBooks();
         }
 
-        public void AddBook(Book book)
+        public void AddBooks(params Book[] books)
         {
-            dao.AddBook(book);
+            foreach(Book book in books){
+                dao.AddBook(book);
+            }
         }
 
         public void RemoveBook(int id)
