@@ -59,13 +59,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\Book.cs" />
+    <Compile Include="src\BookDao.cs" />
+    <Compile Include="src\BookDaoBasicImpl.cs" />
+    <Compile Include="src\Catalog.cs" />
+    <Compile Include="src\CatalogImpl.cs" />
     <Compile Include="src\Client.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
