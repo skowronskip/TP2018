@@ -66,6 +66,8 @@
     <Compile Include="src\Client.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\Users.cs" />
+    <Compile Include="src\UsersImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

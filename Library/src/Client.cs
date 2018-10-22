@@ -8,32 +8,48 @@ namespace Library
 {
     public class Client
     {
+        private int id;
         private String firstName;
         private String lastName;
         private List<Book> books = new List<Book>();
-       
+
         public Client(String firstName, String lastName)
         {
             this.firstName = firstName;
             this.lastName = lastName;
         }
 
-        public String getName()
+        public int GetId()
+        {
+            return this.id;
+        }
+
+        public String GetName()
         {
             return this.firstName + ' ' + this.lastName;
         }
 
-        public void addBook(Book newBook)
+        public String GetFirstName()
+        {
+            return this.firstName;
+        }
+
+        public String GetLastName()
+        {
+            return  this.lastName;
+        }
+
+        public void AddBook(Book newBook)
         {
             books.Add(newBook);
         }
 
-        public int getAmountOfBooks()
+        public int GetAmountOfBooks()
         {
             return books.Count;
         }
 
-        public List<Book> getAllBooks()
+        public List<Book> GetAllBooks()
         {
             return books;
         }
