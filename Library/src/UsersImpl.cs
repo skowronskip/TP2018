@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library.src
 {
-    class UsersImpl : IUsers
+    public class Users : IUsers
     {
         List<Client> clientList = new List<Client>();
 
@@ -55,9 +55,27 @@ namespace Library.src
             return null;
         }
 
-        public void RemoveClient(int id)
+        public bool RemoveClient(int id)
         {
+            Client clientToRemove = clientList.Single(client => client.GetId() == id);
+            if (clientToRemove != null)
+            {
+                clientList.Remove(clientToRemove);
+                return true;
+            }
+            return false;
             
+        }
+
+        public bool UpdateClient(Client updatedClient)
+        {
+            Client clientToUpdate = clientList.Single(client => client.GetId() == updatedClient.GetId());
+            if(clientToUpdate != null)
+            {
+                clientToUpdate.Update(updatedClient);
+                return true;
+            }
+            return false;
         }
     }
 }

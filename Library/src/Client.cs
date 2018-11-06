@@ -13,8 +13,9 @@ namespace Library
         private String lastName;
         private List<Book> books = new List<Book>();
 
-        public Client(String firstName, String lastName)
+        public Client(String firstName, String lastName, int id)
         {
+            this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
         }
@@ -22,6 +23,11 @@ namespace Library
         public int GetId()
         {
             return this.id;
+        }
+
+        public void SetId(int id)
+        {
+            this.id = id; 
         }
 
         public String GetName()
@@ -34,9 +40,19 @@ namespace Library
             return this.firstName;
         }
 
+        public void setFirstName(String firstName)
+        {
+            this.firstName = firstName;
+        }
+
         public String GetLastName()
         {
             return  this.lastName;
+        }
+
+        public void setLastName(String lastName)
+        {
+            this.lastName = lastName;
         }
 
         public void AddBook(Book newBook)
@@ -52,6 +68,14 @@ namespace Library
         public List<Book> GetAllBooks()
         {
             return books;
+        }
+
+        public void Update(Client updatedClient)
+        {
+            this.id = updatedClient.GetId();
+            this.firstName = updatedClient.GetFirstName();
+            this.lastName = updatedClient.GetLastName();
+            this.books = updatedClient.GetAllBooks();
         }
     }
 }

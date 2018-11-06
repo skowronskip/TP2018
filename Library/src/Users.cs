@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library.src
 {
-    interface IUsers
+    public interface IUsers
     {
         Client GetClientById(int id);
         Client GetClientByFirstName(String firstName);
@@ -14,6 +14,7 @@ namespace Library.src
         List<Client> GetAllUsers();
         void AddClient(Client client);
         void AddClients(params Client[] clients);
-        void RemoveClient(int id);
+        bool RemoveClient(int id);
+        bool UpdateClient(Client client);
     }
 }

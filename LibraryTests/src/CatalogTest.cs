@@ -82,7 +82,7 @@ namespace LibraryTests
         {
             //given
             Book book1 = new Book("Title", "Test", 1);
-            Client client = new Client("George", "Bush");
+            Client client = new Client("George", "Bush", 1);
             catalog.AddBooks(book1);
             //when
             catalog.BorrowBook(book1.GetId(), client);
@@ -95,7 +95,7 @@ namespace LibraryTests
         {
             //given
             Book book1 = new Book("Title", "Test", 1);
-            Client client = new Client("George", "Bush");
+            Client client = new Client("George", "Bush", 1);
             catalog.AddBooks(book1);
             catalog.BorrowBook(book1.GetId(), client);
             //when
@@ -111,7 +111,7 @@ namespace LibraryTests
             Book book1 = new Book("Title", "Test", 1);
             Book book2 = new Book("Eltit", "Tset", 2);
             Book book3 = new Book("Title", "Le", 3);
-            Client client = new Client("George", "Bush");
+            Client client = new Client("George", "Bush", 1);
             catalog.AddBooks(book1, book2, book3);
             catalog.BorrowBook(book1.GetId(), client);
             //when
