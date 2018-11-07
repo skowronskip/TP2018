@@ -11,7 +11,7 @@ namespace Library.src
         Client GetClientById(int id);
         Client GetClientByFirstName(String firstName);
         Client GetClientByLastName(String lastName);
-        List<Client> GetAllUsers();
+        List<Client> GetAllClients();
         void AddClient(Client client);
         void AddClients(params Client[] clients);
         bool RemoveClient(int id);

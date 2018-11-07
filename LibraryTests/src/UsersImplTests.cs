@@ -31,7 +31,7 @@ namespace Library.src.Tests
             //when
             usersList.AddClient(client);
             //them
-            Assert.AreEqual(usersList.GetAllUsers()[0], client);
+            Assert.AreEqual(usersList.GetAllClients()[0], client);
 
         }
 
@@ -45,7 +45,7 @@ namespace Library.src.Tests
             //when
             usersList.AddClients(client1, client2, client3);
             //then
-            List<Client> allUsers = usersList.GetAllUsers();
+            List<Client> allUsers = usersList.GetAllClients();
             Assert.IsTrue(allUsers.Count == 3);
             Assert.IsTrue(allUsers.Contains(client1));
             Assert.IsTrue(allUsers.Contains(client2));
@@ -105,7 +105,7 @@ namespace Library.src.Tests
             //when
             usersList.RemoveClient(2);
             //then
-            List<Client> allUsers = usersList.GetAllUsers();
+            List<Client> allUsers = usersList.GetAllClients();
             Assert.IsTrue(allUsers.Count == 2);
             Assert.IsTrue(allUsers.Contains(client1));
             Assert.IsFalse(allUsers.Contains(client2));

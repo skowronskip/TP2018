@@ -23,7 +23,7 @@ namespace Library.src
             }
         }
 
-        public List<Client> GetAllUsers()
+        public List<Client> GetAllClients()
         {
             return clientList;
         }
