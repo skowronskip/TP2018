@@ -64,6 +64,9 @@
     <Compile Include="src\Catalog.cs" />
     <Compile Include="src\CatalogImpl.cs" />
     <Compile Include="src\Client.cs" />
+    <Compile Include="src\Event.cs" />
+    <Compile Include="src\Events.cs" />
+    <Compile Include="src\EventsImpl.cs" />
     <Compile Include="src\ProcessState.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -52,6 +52,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\EventsTests.cs" />
     <Compile Include="src\ProcessStateTest.cs" />
     <Compile Include="src\CatalogTest.cs" />
     <Compile Include="src\UsersImplTests.cs" />

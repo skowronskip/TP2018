@@ -60,6 +60,11 @@ namespace Library
             books.Add(newBook);
         }
 
+        public void RemoveBook(Book book)
+        {
+            books.Remove(book);
+        }
+
         public int GetAmountOfBooks()
         {
             return books.Count;
