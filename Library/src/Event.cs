@@ -12,18 +12,27 @@ namespace Library.src
         private Book book;
         private String createdAt;
 
-        public Event(Client user, Book book)
+        public Event(Client user)
         {
             this.user = user;
-            this.book = book;
             this.createdAt = DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy hh:mm:ss");
+        }
+    }
+
+    public class NewUser : Event
+    {
+        public NewUser(Client user) : base(user)
+        {
+
         }
     }
 
     public class BorrowBook : Event
     {
-        public BorrowBook(Client user, Book book) : base(user, book)
+        private Book book;
+        public BorrowBook(Client user, Book book) : base(user)
         {
+            this.book = book;
             book.SetClient(user);
             user.AddBook(book);
         }
@@ -31,8 +40,10 @@ namespace Library.src
 
     public class ReturnBook : Event
     {
-        public ReturnBook(Client user, Book book) : base(user, book)
+        private Book book;
+        public ReturnBook(Client user, Book book) : base(user)
         {
+            this.book = book;
             book.SetClient(null);
             user.RemoveBook(book);
         }
