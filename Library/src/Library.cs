@@ -8,12 +8,12 @@ namespace Library.src
 {
     public class Library
     {
-        private Catalog catalog;
+        private ICatalog catalog;
         private ProcessState processState;
-        private Users users;
-        private Events events;
+        private IUsers users;
+        private IEvents events;
 
-        public Library(SimpleBookDao dao)
+        public Library(IBookDao dao)
         {
             this.catalog = new Catalog(dao);
             this.processState = new ProcessState(dao);

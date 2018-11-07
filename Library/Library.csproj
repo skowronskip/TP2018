@@ -59,19 +59,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\Book.cs" />
-    <Compile Include="src\BookDao.cs" />
-    <Compile Include="src\BookDaoBasicImpl.cs" />
+    <Compile Include="src\IBookDao.cs" />
+    <Compile Include="src\SimpleBookDao.cs" />
+    <Compile Include="src\ICatalog.cs" />
     <Compile Include="src\Catalog.cs" />
-    <Compile Include="src\CatalogImpl.cs" />
     <Compile Include="src\Client.cs" />
+    <Compile Include="src\Library.cs" />
     <Compile Include="src\Event.cs" />
+    <Compile Include="src\IEvents.cs" />
     <Compile Include="src\Events.cs" />
-    <Compile Include="src\EventsImpl.cs" />
     <Compile Include="src\ProcessState.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\IUsers.cs" />
     <Compile Include="src\Users.cs" />
-    <Compile Include="src\UsersImpl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
