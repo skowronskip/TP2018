@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Library.src;
+using Library;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Library.src.Tests
             this.eventsList = null;
         }
         [TestMethod()]
-        public void listEventsTest()
+        public void ListEventsTest()
         {
             //given
             Book newBook1 = new Book("Tested Borrowed Book", "Developer", 1);
