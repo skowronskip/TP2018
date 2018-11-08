@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Library.src
 {
     public class Library
+        //todo as another project - use dll
     {
         private ICatalog catalog;
         private ProcessState processState;

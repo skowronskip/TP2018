@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Library.src
 {
     public class Event
-    {
+    {//todo think about ids
         private Client user;
         private Book book;
         private String createdAt;
