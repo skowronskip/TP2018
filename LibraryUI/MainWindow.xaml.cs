@@ -35,6 +35,7 @@ namespace LibraryUI
             library = new LibraryClass(bookDao);
             library.AddClient("Cli", "Ent");
             library.AddClient("Tne", "Ilc");
+            library.BorrowBook(1, 1); //todo debug - KILL ME PLEASE
             InitializeComponent();
             BooksLw.ItemsSource = LoadBooks(library);
             ClientsLw.ItemsSource = LoadClients(library);
@@ -153,6 +154,7 @@ namespace LibraryUI
             public int ID { get; set; }
             public String FirstName { get; set; }
             public String LastName { get; set; }
+            public String Books { get; set; }
         }
         public List<ListClient> LoadClients(LibraryClass library)
         {
@@ -163,7 +165,8 @@ namespace LibraryUI
                 {
                     ID = client.GetId(),
                     FirstName = client.GetFirstName(),
-                    LastName = client.GetLastName()
+                    LastName = client.GetLastName(),
+                    Books = string.Join(",", client.GetAllBooks().Select(x => x.GetTitle()))
                 });
             }
             return res;

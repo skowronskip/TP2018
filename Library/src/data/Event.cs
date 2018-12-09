@@ -33,8 +33,8 @@ namespace Library.src
         private Book book;
         public BorrowBook(Client client, Book book) : base(client)
         {
-            this.book = book;
-            book.SetClient(client);
+            this.Book = book;
+            Book.SetClient(client);
             client.AddBook(book);
             this.Type = "BorrowBook";
         }
@@ -45,9 +45,9 @@ namespace Library.src
         private Book book;
         public ReturnBook(Client client, Book book) : base(client)
         {
-            this.book = book;
-            book.SetClient(null);
-            client.RemoveBook(book);
+            this.Book = book;
+            Book.SetClient(null);
+            client.RemoveBook(Book);
             this.Type = "ReturnBook";
         }
     }

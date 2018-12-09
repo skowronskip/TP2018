@@ -43,8 +43,9 @@
                 <ListView Margin="10" Name="ClientsLw">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="FirstName" Width="150" DisplayMemberBinding="{Binding FirstName}" />
-                            <GridViewColumn Header="LastName" Width="150" DisplayMemberBinding="{Binding LastName}" />
+                            <GridViewColumn Header="FirstName" Width="100" DisplayMemberBinding="{Binding FirstName}" />
+                            <GridViewColumn Header="LastName" Width="100" DisplayMemberBinding="{Binding LastName}" />
+                            <GridViewColumn Header="Books" Width="200" DisplayMemberBinding="{Binding Books}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
