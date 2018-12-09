@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library.src
 {
-    public class Library
+    public class LibraryClass
         //todo as another project - use dll
     {
         private ICatalog catalog;
@@ -14,7 +14,7 @@ namespace Library.src
         private IUsers users;
         private IEvents events;
 
-        public Library(IBookDao dao)
+        public LibraryClass(IBookDao dao)
         {
             this.catalog = new Catalog(dao);
             this.processState = new ProcessState(dao);

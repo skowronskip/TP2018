@@ -16,7 +16,12 @@ namespace Library
 
         public Book GetBook(int id)
         {
-            return dao.GetBooks().Select(book => book).Where(book => id == book.GetId()).ToArray()[0];
+            Book[] books = dao.GetBooks().Select(book => book).Where(book => id == book.GetId()).ToArray();
+            if(books.Length > 0)
+            {
+                return books[0];
+            }
+            return null;
         }
 
         public List<Book> GetBooksByAuthor(String author)
