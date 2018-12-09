@@ -33,26 +33,23 @@ namespace LibraryUI
             bookDao.AddBook(new Book("Book 4", "Author 4", 3));
             bookDao.AddBook(new Book("Book 5", "Author 5", 4));
             library = new LibraryClass(bookDao);
+            library.AddClient("Cli", "Ent");
+            library.AddClient("Tne", "Ilc");
             InitializeComponent();
             BooksLw.ItemsSource = LoadBooks(library);
-        }
-
-        private void ListOfClients_Click(object sender, RoutedEventArgs e)
-        {
-            MainMenuPanel.Visibility = Collapsed;
+            ClientsLw.ItemsSource = LoadClients(library);
         }
         
+        // Books
         private void ListOfBooks_Click(object sender, RoutedEventArgs e)
         {
             MainMenuPanel.Visibility = Collapsed;
             BooksPanel.Visibility = Visible;
         }
-
         private void AddBookButton_Click(object sender, RoutedEventArgs e)
         {
             NewBookPanel.Visibility = Visible;
         }
-
         private void NewBook_ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             string author = NewBook_AuthorBox.Text;
@@ -68,7 +65,6 @@ namespace LibraryUI
             BooksLw.ItemsSource = LoadBooks(library);
             NewBookPanel.Visibility = Collapsed;
         }
-
         private void DeleteBookButton_Click(object sender, RoutedEventArgs e)
         {
             ListBook selectedBook = BooksLw.SelectedItem as ListBook;
@@ -81,11 +77,7 @@ namespace LibraryUI
             {
                 MessageBox.Show("Book is not choosen");
             }
-            
         }
-
-
-
         public class ListBook
         {
             public int ID { get; set; }
@@ -94,7 +86,6 @@ namespace LibraryUI
 
             public string Author { get; set; }
         }
-
         public List<ListBook> LoadBooks(LibraryClass library)
         {
             List < ListBook > result = new List<ListBook>();
@@ -107,6 +98,66 @@ namespace LibraryUI
                 });
             }
             return result;
+        }
+
+        // Clients
+        private void ListOfClients_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuPanel.Visibility = Collapsed;
+            ClientsPanel.Visibility = Visible;
+        }
+        private void AddClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewClientPanel.Visibility = Visible;
+        }
+        private void NewClient_ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            string FirstName = NewClient_FirstNameBox.Text;
+            string LastName = NewClient_LastNameBox.Text;
+            if (FirstName == null || LastName == null)
+            {
+                MessageBox.Show("Both fields are required");
+            }
+            else
+            {
+                library.AddClient(FirstName, LastName);
+            }
+            ClientsLw.ItemsSource = LoadClients(library);
+            NewClientPanel.Visibility = Collapsed;
+        }
+        private void DeleteClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListClient selected = ClientsLw.SelectedItem as ListClient;
+            if (selected != null)
+            {
+                library.RemoveClient(selected.ID);
+                ClientsLw.ItemsSource = LoadClients(library);
+            }
+            else
+            {
+                MessageBox.Show("Client is not choosen");
+            }
+
+        }
+        public class ListClient
+        {
+            public int ID { get; set; }
+            public String FirstName { get; set; }
+            public String LastName { get; set; }
+        }
+        public List<ListClient> LoadClients(LibraryClass library)
+        {
+            List<ListClient> res = new List<ListClient>();
+            foreach (Client client in library.GetClients())
+            {
+                res.Add(new ListClient()
+                {
+                    ID = client.GetId(),
+                    FirstName = client.GetFirstName(),
+                    LastName = client.GetLastName()
+                });
+            }
+            return res;
         }
     }
 }

@@ -3,3 +3,5 @@ Library/obj
 LibraryTests/bin
 LibraryTests/obj
 .vs
+LibraryUI/bin
+LibraryUI/obj
