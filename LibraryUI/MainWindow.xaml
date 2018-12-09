@@ -13,7 +13,7 @@
                 <Label x:Name="DataLabel" Content="List of:" FontSize="20" HorizontalContentAlignment="Center"/>
                 <Button x:Name="ClientsButton" Click="ListOfClients_Click" Content="Clients" Height="30" Margin="0,10,0,10" HorizontalAlignment="Center" Width="200"/>
                 <Button x:Name="BooksButton"  Click="ListOfBooks_Click" Content="Books" Height="30" Margin="0,10,0,10" Width="200" HorizontalAlignment="Center"/>
-                <Button x:Name="EventsButton" Content="Events" Height="30" Margin="0,10,0,10" Width="200" HorizontalAlignment="Center"/>
+                <Button x:Name="EventsButton" Click="ListOfEvents_Click" Content="Events" Height="30" Margin="0,10,0,10" Width="200" HorizontalAlignment="Center"/>
             </StackPanel>
         </StackPanel>
         <StackPanel x:Name="BooksPanel" HorizontalAlignment="Left" Height="549" Margin="10,0,0,0" VerticalAlignment="Top" Width="772" Visibility="Collapsed">
@@ -35,6 +35,7 @@
                 <TextBox x:Name="NewBook_AuthorBox" Margin="5" Height="25" TextWrapping="Wrap" Text="Author"/>
                 <Button x:Name="NewBook_ConfirmButton" Click="NewBook_ConfirmButton_Click" Height="30" Content="Confirm" Margin="5"/>
             </StackPanel>
+            <Button x:Name="ReturnButtonBooks" Click="Return_Click" Content="Return" Height="30" Margin="0,10,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200"/>
         </StackPanel>
 
         <StackPanel x:Name="ClientsPanel" HorizontalAlignment="Left" Height="549" Margin="10,0,0,0" VerticalAlignment="Top" Width="772" Visibility="Collapsed">
@@ -55,6 +56,25 @@
                 <TextBox x:Name="NewClient_LastNameBox" Margin="5" Height="25" TextWrapping="Wrap" Text="LastName"/>
                 <Button x:Name="NewClient_ConfirmButton" Click="NewClient_ConfirmButton_Click" Height="30" Content="Confirm" Margin="5"/>
             </StackPanel>
+            <Button x:Name="ReturnButtonClients" Click="Return_Click" Content="Return" Height="30" Margin="0,10,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200"/>
+        </StackPanel>
+
+        <StackPanel x:Name="EventsPanel" HorizontalAlignment="Left" Height="549" Margin="10,0,0,0" VerticalAlignment="Top" Width="772" Visibility="Collapsed">
+            <ListView x:Name="EventsList" Height="398" Width="772">
+                <ListView Margin="10" Name="EventsLw">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Type" Width="100" DisplayMemberBinding="{Binding Type}" />
+                            <GridViewColumn Header="Date" Width="150" DisplayMemberBinding="{Binding CreatedAt}" />
+                            <GridViewColumn Header="ClientFirstName" Width="100" DisplayMemberBinding="{Binding ClientFirstName}" />
+                            <GridViewColumn Header="ClientLastName" Width="100" DisplayMemberBinding="{Binding ClientFirstName}" />
+                            <GridViewColumn Header="Title" Width="100" DisplayMemberBinding="{Binding Title}" />
+                            <GridViewColumn Header="Author" Width="100" DisplayMemberBinding="{Binding Author}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ListView>
+            <Button x:Name="ReturnButtonEvents" Click="Return_Click" Content="Return" Height="30" Margin="0,10,0,10" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200"/>
         </StackPanel>
 
     </Grid>

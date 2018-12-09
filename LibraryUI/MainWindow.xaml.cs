@@ -38,8 +38,17 @@ namespace LibraryUI
             InitializeComponent();
             BooksLw.ItemsSource = LoadBooks(library);
             ClientsLw.ItemsSource = LoadClients(library);
+            EventsLw.ItemsSource = LoadEvents(library);
         }
         
+        public void Return_Click(object sender, RoutedEventArgs e)
+        {
+            ClientsPanel.Visibility = Collapsed;
+            BooksPanel.Visibility = Collapsed;
+            EventsPanel.Visibility = Collapsed;
+            MainMenuPanel.Visibility = Visible;
+        }
+
         // Books
         private void ListOfBooks_Click(object sender, RoutedEventArgs e)
         {
@@ -155,6 +164,41 @@ namespace LibraryUI
                     ID = client.GetId(),
                     FirstName = client.GetFirstName(),
                     LastName = client.GetLastName()
+                });
+            }
+            return res;
+        }
+
+        // Events
+        private void ListOfEvents_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuPanel.Visibility = Collapsed;
+            EventsLw.ItemsSource = LoadEvents(library);
+            EventsPanel.Visibility = Visible;
+        }
+
+        public class ListEvent
+        {
+            public String Type { get; set; }
+            public String CreatedAt { get; set; }
+            public String ClientFirstName { get; set; }
+            public String ClientLastName { get; set; }
+            public String Title { get; set; }
+            public String Author { get; set; }
+        }
+        public List<ListEvent> LoadEvents(LibraryClass library)
+        {
+            List<ListEvent> res = new List<ListEvent>();
+            foreach (Event e in library.GetEvents())
+            {
+                res.Add(new ListEvent()
+                {
+                    Type = e.Type,
+                    CreatedAt = e.CreatedAt,
+                    ClientFirstName = e.Client.GetFirstName(),
+                    ClientLastName = e.Client.GetLastName(),
+                    Title = e.Book == null ? "n/a" : e.Book.GetTitle(),
+                    Author = e.Book == null ? "n/a" : e.Book.GetAuthor()
                 });
             }
             return res;

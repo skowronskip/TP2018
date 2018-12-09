@@ -7,45 +7,48 @@ using System.Threading.Tasks;
 namespace Library.src
 {
     public class Event
-    {//todo think about ids
-        private Client user;
-        private Book book;
-        private String createdAt;
+    {
+        public Client Client { get; set; }
+        public Book Book { get; set; }
+        public String CreatedAt { get; set; }
+        public String Type { get; set; }
 
-        public Event(Client user)
+        public Event(Client client)
         {
-            this.user = user;
-            this.createdAt = DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy hh:mm:ss");
+            this.Client = client;
+            this.CreatedAt = DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy hh:mm:ss");
         }
     }
 
     public class NewUser : Event
     {
-        public NewUser(Client user) : base(user)
+        public NewUser(Client client) : base(client)
         {
-
+            this.Type = "NewUser";
         }
     }
 
     public class BorrowBook : Event
     {
         private Book book;
-        public BorrowBook(Client user, Book book) : base(user)
+        public BorrowBook(Client client, Book book) : base(client)
         {
             this.book = book;
-            book.SetClient(user);
-            user.AddBook(book);
+            book.SetClient(client);
+            client.AddBook(book);
+            this.Type = "BorrowBook";
         }
     }
 
     public class ReturnBook : Event
     {
         private Book book;
-        public ReturnBook(Client user, Book book) : base(user)
+        public ReturnBook(Client client, Book book) : base(client)
         {
             this.book = book;
             book.SetClient(null);
-            user.RemoveBook(book);
+            client.RemoveBook(book);
+            this.Type = "ReturnBook";
         }
     }
 }
