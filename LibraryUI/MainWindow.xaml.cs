@@ -110,6 +110,21 @@ namespace LibraryUI
             return result;
         }
 
+        public List<ListBook> LoadBooksFromList(List<Book> books)
+        {
+            List<ListBook> result = new List<ListBook>();
+            foreach (Book book in books)
+            {
+                result.Add(new ListBook()
+                {
+                    ID = book.GetId(),
+                    Title = book.GetTitle(),
+                    Author = book.GetAuthor()
+                });
+            }
+            return result;
+        }
+
         // Clients
         private void ListOfClients_Click(object sender, RoutedEventArgs e)
         {
@@ -119,6 +134,76 @@ namespace LibraryUI
         private void AddClientButton_Click(object sender, RoutedEventArgs e)
         {
             NewClientPanel.Visibility = Visible;
+        }
+        private void ReturnBook_ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListBook selectedBook = CliensAvailableBookLw.SelectedItem as ListBook;
+            ListClient selectedClient = ClientsLw.SelectedItem as ListClient;
+            if (selectedClient != null && selectedBook != null)
+            {
+                library.ReturnBook(selectedClient.ID, selectedBook.ID);
+                CliensAvailableBookPanel.Visibility = Collapsed;
+                ReturnBook_ConfirmButton.Visibility = Collapsed;
+                ClientsLw.ItemsSource = LoadClients(library);
+            }
+            else if(selectedBook == null)
+            {
+                MessageBox.Show("Book is not choosen");
+            }
+            else if(selectedClient == null)
+            {
+                MessageBox.Show("Client is not choosen");
+            }
+        }
+        private void BorrowBook_ConfirmButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListBook selectedBook = CliensAvailableBookLw.SelectedItem as ListBook;
+            ListClient selectedClient = ClientsLw.SelectedItem as ListClient;
+            if (selectedClient != null && selectedBook != null)
+            {
+                library.BorrowBook(selectedClient.ID, selectedBook.ID);
+                CliensAvailableBookPanel.Visibility = Collapsed;
+                BorrowBook_ConfirmButton.Visibility = Collapsed;
+                ClientsLw.ItemsSource = LoadClients(library);
+            }
+            else if (selectedBook == null)
+            {
+                MessageBox.Show("Book is not choosen");
+            }
+            else if (selectedClient == null)
+            {
+                MessageBox.Show("Client is not choosen");
+            }
+        }
+        private void ReturnBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListClient selected = ClientsLw.SelectedItem as ListClient;
+            if (selected != null)
+            {
+                CliensAvailableBookPanel.Visibility = Visible;
+                ReturnBook_ConfirmButton.Visibility = Visible;
+                List<Book> clientBooks = library.GetClientById(selected.ID).GetAllBooks();
+                CliensAvailableBookLw.ItemsSource = LoadBooksFromList(clientBooks);
+            }
+            else
+            {
+                MessageBox.Show("Client is not choosen");
+            }
+        }
+        private void BorrowBookButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListClient selected = ClientsLw.SelectedItem as ListClient;
+            if (selected != null)
+            {
+                CliensAvailableBookPanel.Visibility = Visible;
+                BorrowBook_ConfirmButton.Visibility = Visible;
+                List<Book> clientBooks = library.GetBooksByState(true);
+                CliensAvailableBookLw.ItemsSource = LoadBooksFromList(clientBooks);
+            }
+            else
+            {
+                MessageBox.Show("Client is not choosen");
+            }
         }
         private void NewClient_ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
